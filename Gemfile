@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem 'thin', '>= 1.5.0'
 gem 'better_errors', :group => :development
+gem 'binding_of_caller', :group => :development
 gem 'devise'
 gem 'backbone-on-rails'
 gem 'omniauth'
