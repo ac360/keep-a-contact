@@ -25,6 +25,10 @@ gem 'thin', '>= 1.5.0'
 gem 'better_errors', :group => :development
 gem 'devise'
 gem 'backbone-on-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails', :groups => [:development, :test]
+gem 'koala'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

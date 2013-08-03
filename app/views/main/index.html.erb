@@ -1,5 +1,10 @@
-<div class="row">
+<div class="row" style="border-top: 10px solid #111111">
    	<div id="registration-panel" class="col-offset-4 col-lg-4">
+   		<% if user_signed_in? %>
+			  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+		<% else %>
+		<% end %>
+
    		<h2 class="k-white k-centered k-no-margin">Keep-A-Contact</h2>
    		<p class="k-centered k-grey-one k-padding">Store &amp; Maintain Your Relationships</p>
    		<div class="row">
@@ -9,7 +14,7 @@
    		</div>
    		<div class="row">
    			<div class="col-lg-12 k-centered k-padding">
-   				<button type="button" class="btn btn-primary btn-large">Connect via Facebook</button>
+   				<%= link_to "Connect via Facebook", user_omniauth_authorize_path(:facebook), :class => 'btn btn-primary btn-large' %>
    			</div>
    		</div>
    	</div>
