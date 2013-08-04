@@ -44,5 +44,13 @@ class User < ActiveRecord::Base
 		  end
 		  user
 	  end # end find_for_facebook_oauth
+
+	  def facebook
+		  @facebook ||= Koala::Facebook::API.new(oauth_token)
+		  block_given? ? yield(@facebook) : @facebook
+		  rescue Koala::Facebook::APIError => e
+		  logger.info e.to_s
+		  nil # or consider a custom null object
+	  end
   
 end
