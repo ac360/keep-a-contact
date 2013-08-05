@@ -38,24 +38,28 @@
  #feed-container {background:#eaeaea;min-height:600px;}
  #suggestions-container {background:#f5f5f5;min-height:600px;}
 
-  /* Facebook Contacts Screen */
-  #facebook-contacts-container {background:#eaeaea;height:600px;}
-  #facebook-contacts-search-field {margin-top:25px;background:#eaeaea;}
-  #scrollable-container {height:520px;width:80%;}
-  #facebook-contacts-list li {background:#ffffff;padding:5px;margin-bottom:5px;width:100%;-webkit-box-shadow: 0px 1px 1px hsla(0, 0%, 0%, 0.30) ;box-shadow:  0px 1px 1px hsla(0, 0%, 0%, 0.30) ;}
-  #facebook-contacts-list li:hover {cursor:move}
-  .facebook-contact-photo {margin-right:10px;}
-  .facebook-contact-name {font-size:14px;font-weight:bold;}
+ /* Navigation Module */
+ #navigation-groups-list li {height:25px;padding:4px 10px 0px 10px;background:transparent;}
+ .navigation-highlight {background:#f2d975!important;color:#000000!important;font-weight:bold!important;}
 
-  [draggable] {
-	  -moz-user-select: none;
-	  -khtml-user-select: none;
-	  -webkit-user-select: none;
-	  user-select: none;
-	  /* Required to make elements draggable in old WebKit */
-	  -khtml-user-drag: element;
-	  -webkit-user-drag: element;
-	}
+/* Facebook Contacts Screen */
+#facebook-contacts-container {background:#eaeaea;height:600px;}
+#facebook-contacts-search-field {margin-top:25px;background:#eaeaea;}
+#scrollable-container {height:520px;width:80%;}
+#facebook-contacts-list li {background:#ffffff;padding:5px;margin-bottom:5px;width:100%;-webkit-box-shadow: 0px 1px 1px hsla(0, 0%, 0%, 0.30) ;box-shadow:  0px 1px 1px hsla(0, 0%, 0%, 0.30) ;}
+#facebook-contacts-list li:hover {cursor:move}
+.facebook-contact-photo {margin-right:10px;}
+.facebook-contact-name {font-size:14px;font-weight:bold;}
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
 
   /* Bootstrap 3 Overrides */
   .form-control {border-radius:0px;border:0px;}

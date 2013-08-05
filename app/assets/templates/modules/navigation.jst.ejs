@@ -8,10 +8,9 @@
 
 <h4 class="k-white k-padding-top">Groups</h4>
 <ul id="navigation-groups-list" class="list-unstyled k-white">
-	<li>Family</li>
-	<li>Friends</li>
-	<li>Coworkers</li>
-	<li>Other</li>
+	<% _.each(collection, function(collection) { %>
+		<li id="group-list-item" draggable="true"><%= collection.name %> </li>
+	<% }); %>
 </ul>
 <button type="button" class="btn btn-default btn-mini">New Group</button>
 
