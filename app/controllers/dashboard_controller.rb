@@ -4,5 +4,9 @@ class DashboardController < ApplicationController
 		
 	end
 
+	def facebook_contacts
+
+	end
+
 end
 
