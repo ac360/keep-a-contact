@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
 	  # Setup accessible (or protected) attributes for your model
 	  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :oauth_token, :first_name, :image, :location, :link, :gender, :timezone
 
+	  has_one :user_status, dependent: :destroy
+	  has_many :groups, dependent: :destroy
+
+	  after_create :create_associations
+
 	  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 		  user = User.where(:provider => auth.provider, :uid => auth.uid).first
 
@@ -51,6 +56,19 @@ class User < ActiveRecord::Base
 		  rescue Koala::Facebook::APIError => e
 		  logger.info e.to_s
 		  nil # or consider a custom null object
+	  end
+
+	  def create_associations
+	  	@user_status = UserStatus.new(:user_id => self.id)
+  		@user_status.save
+  		@group_family = Group.new(:user_id => self.id, :name => 'Family', :list_order => 1)
+  		@group_family.save
+  		@group_friends = Group.new(:user_id => self.id, :name => 'Friends', :list_order => 2)
+  		@group_friends.save
+  		@group_coworkers = Group.new(:user_id => self.id, :name => 'Coworkers', :list_order => 3)
+  		@group_coworkers.save
+  		@group_other = Group.new(:user_id => self.id, :name => 'Other', :list_order => 4)
+  		@group_other.save
 	  end
   
 end

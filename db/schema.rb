@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130803010521) do
+ActiveRecord::Schema.define(:version => 20130805220527) do
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "list_order"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_statuses", :force => true do |t|
+    t.boolean  "connected_facebook", :default => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.integer  "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

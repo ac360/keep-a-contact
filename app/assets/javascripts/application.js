@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require underscore
+//= require nicescroll
 //= require backbone
 //= require keep_a_contact
 //= require_tree ../templates
