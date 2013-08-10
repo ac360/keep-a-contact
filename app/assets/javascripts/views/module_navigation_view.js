@@ -10,21 +10,22 @@ KeepAContact.Views.ModuleNavigation = Backbone.View.extend({
 	},
 
 	events: {
-		"dragenter #group-list-item":  "addHighlight",
-		"dragleave #group-list-item":  "removeHighlight"
-    },
+		"dragenter .group-list-item":  "addHighlight",
+		"dragleave .group-list-item":  "removeHighlight",
+    "drop .group-list-item":       "testFunction"
+  },
 
-    addHighlight: function(e) {
-    	$(e.currentTarget).addClass( "navigation-highlight" );
-    },
+  testFunction: function() {
+    event_bus.trigger('drop', 'group-list-item')
+  },
 
-    removeHighlight: function(e) {
-    	$(e.currentTarget).removeClass( "navigation-highlight" );
-    },
+  addHighlight: function(e) {
+  	$(e.currentTarget).addClass( "navigation-highlight" );
+  },
 
-    addContact: function() {
-    	console.log("new contact created!")
-    },
+  removeHighlight: function(e) {
+  	$(e.currentTarget).removeClass( "navigation-highlight" );
+  },
 
 	render: function () {
 		var userGroups = new KeepAContact.Collections.Groups();
@@ -40,6 +41,11 @@ KeepAContact.Views.ModuleNavigation = Backbone.View.extend({
                 }
             } // End Success
 	    }); // End fetch
+
+      // Drop Event Listener
+      $('.facebook-contact').on('drop',function(e){
+          console.log("helo")
+      })
 
 		return this;
 	}

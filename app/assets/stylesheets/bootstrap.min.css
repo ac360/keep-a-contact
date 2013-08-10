@@ -21,6 +21,9 @@
  .k-eighteen {font-size:18px;}
  .k-box-shadow-one {-webkit-box-shadow: 0px 1px 1px hsla(0, 0%, 0%, 0.30) ;box-shadow:  0px 1px 1px hsla(0, 0%, 0%, 0.30) ;}
 
+ /* Style Placeholder Text --> */ ::-webkit-input-placeholder { text-align:center!important; } :-moz-placeholder { /* Firefox 18- */ text-align:center!important; } ::-moz-placeholder {  /* Firefox 19+ */ text-align:center!important; } :-ms-input-placeholder { text-align:center!important; } .form-control:focus {border: none; outline: 0; -webkit-box-shadow:none; box-shadow:none; }
+ :focus {outline: 0!important; }
+
  /* Body */
  body {background:#212121;}
 
@@ -44,12 +47,29 @@
 
 /* Facebook Contacts Screen */
 #facebook-contacts-container {background:#eaeaea;height:600px;}
-#facebook-contacts-search-field {margin-top:25px;background:#eaeaea;}
-#scrollable-container {height:520px;width:80%;}
-#facebook-contacts-list li {background:#ffffff;padding:5px;margin-bottom:5px;width:100%;-webkit-box-shadow: 0px 1px 1px hsla(0, 0%, 0%, 0.30) ;box-shadow:  0px 1px 1px hsla(0, 0%, 0%, 0.30) ;}
+#facebook-contacts-search-field {margin-top:25px;background:#eaeaea;text-align:center;}
+#scrollable-container {height:520px;width:90%;}
+#facebook-contacts-list {padding:10px;}
+#facebook-contacts-list li {background:#ffffff;overflow:hidden;height:142px;margin-bottom:8px;text-align:center;-webkit-box-shadow: 0px 1px 1px hsla(0, 0%, 0%, 0.30) ;box-shadow:  0px 1px 1px hsla(0, 0%, 0%, 0.30) ;}
 #facebook-contacts-list li:hover {cursor:move}
+#facebook-contacts-list li img {margin:15px auto 8px auto;text-align:center;}
 .facebook-contact-photo {margin-right:10px;}
-.facebook-contact-name {font-size:14px;font-weight:bold;}
+.facebook-contact-name {font-size:13px;font-weight:normal;}
+#add-contact-modal .modal-content { border-radius: 0px;border:0px;background:transparent; }
+#add-facebook-contact-form {max-width:250px;margin:0px auto;}
+#add-facebook-contact-form .form-control {text-align:center;}
+
+.unselectable {
+    /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
+    /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
+    -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none; /* From IE10 only */
+    user-select: none; /* Not valid CSS yet, as of July 2012 */
+
+    -webkit-user-drag: none!important; /* Prevents dragging of images/divs etc */
+    user-drag: none!important;
+}
 
 [draggable] {
   -moz-user-select: none;

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805222926) do
+ActiveRecord::Schema.define(:version => 20130810171420) do
 
   create_table "contacts", :force => true do |t|
     t.string   "full_name"
@@ -20,8 +20,13 @@ ActiveRecord::Schema.define(:version => 20130805222926) do
     t.string   "email"
     t.string   "location"
     t.integer  "group_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "source"
+    t.string   "source_uid"
+    t.string   "group_name"
+    t.string   "facebook_url"
+    t.string   "birthday"
   end
 
   create_table "groups", :force => true do |t|
@@ -62,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130805222926) do
     t.string   "link"
     t.string   "gender"
     t.string   "timezone"
+    t.string   "group_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
