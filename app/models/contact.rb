@@ -1,5 +1,7 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :email, :first_name, :full_name, :last_name, :location
+  
+  # Make all attributes accessible
+  attr_protected
 
   belongs_to :group
 

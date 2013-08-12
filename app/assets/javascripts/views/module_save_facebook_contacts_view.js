@@ -34,8 +34,22 @@ KeepAContact.Views.ModuleSaveFacebookContactsView = Backbone.View.extend({
 	                } else {
 
 	                   // First Save the new contact
-	                   console.log(response)
-	                   
+	                   console.log(response);
+
+	                   var keepacontactContact = new KeepAContact.Collections.KeepAContactContact();
+
+	                   keepacontactContact.create({ 
+			                   	full_name: response.attributes.name, 
+			                   	first_name: response.attributes.first_name,
+			                   	last_name:  response.attributes.last_name,
+			                   	email:  response.attributes.email,
+			                   	birthday: response.attributes.birthday, 
+			                   	gender:  response.attributes.gender,
+			                   	location:  response.attributes.location,
+			                   	source:  "facebook",
+			                   	source_uid:  response.attributes.id,
+			                   	facebook_url: response.attributes.link  
+		                    });
 
 	                   // Then Load the modal window
 	          //          var addContactModal = new KeepAContact.Views.ModalAddContact({ model: result })
