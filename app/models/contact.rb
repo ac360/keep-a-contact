@@ -4,5 +4,6 @@ class Contact < ActiveRecord::Base
   attr_protected
 
   belongs_to :group
+  belongs_to :contact
 
 end

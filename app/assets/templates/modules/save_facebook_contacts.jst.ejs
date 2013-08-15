@@ -1,11 +1,10 @@
 <% _.each(collection, function(collection) { %>
-		<li draggable="true" data-fullname="<%= collection.name %>" class="col-lg-3 facebook-contact">
+		<li draggable="true" data-id="<%= collection.id %>"  class="col-lg-3 facebook-contact">
 			<div class="row">
 				<p class="col-lg-12"><img src="https://graph.facebook.com/<%= collection.id %>/picture" class="facebook-contact-photo unselectable" draggable="false"/></p> 
 			</div>
 			<div class="row">
 				<p class="facebook-contact-name col-lg-12"><%= collection.name %></p> 
-				<center><button class="btn btn-mini k-white add-contact-button" data-id="<%= collection.id %>">Add Contact</button></center>
 			</div>
 		</li>
 <% }); %>

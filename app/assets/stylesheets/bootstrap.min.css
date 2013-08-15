@@ -58,6 +58,7 @@
 #add-contact-modal .modal-content { border-radius: 0px;border:0px;background:transparent; }
 #add-facebook-contact-form {max-width:250px;margin:0px auto;}
 #add-facebook-contact-form .form-control {text-align:center;}
+.draggable-object {background:red!important;}
 
 .unselectable {
     /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */

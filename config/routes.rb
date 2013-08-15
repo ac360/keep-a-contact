@@ -9,7 +9,9 @@ KeepAContact::Application.routes.draw do
   	  match 'facebook/get_contacts', :to => 'facebook_api#get_contacts'
       match 'facebook/get_contact', :to => 'facebook_api#get_single_contact'
   	  match 'keepacontact/groups', :to => 'keepacontact_api#get_groups'
+      match 'keepacontact/contacts', :to => 'keepacontact_api#get_contacts', :via => [:get]
       match 'keepacontact/contacts', :to => 'keepacontact_api#create_contact', :via => [:post]
+      match 'keepacontact/contacts/:id', :to => 'keepacontact_api#update_contact', :via => [:put]
   	  # Root
 	    root :to => redirect("/dashboard")
       
