@@ -1,0 +1,15 @@
+<form>
+  <fieldset> 
+    <div class="form-group">
+      <input type="text" class="form-control k-font" id="facebook-contacts-search-field" placeholder="Search Contacts">
+    </div>
+  </fieldset>
+</form>
+
+<h4 class="k-white k-padding-top k-font" style="padding-left:5px;">Groups</h4>
+<ul id="navigation-groups-list" class="list-unstyled k-white">
+	<% _.each(collection, function(collection) { %>
+		<li class="group-list-item k-font" draggable="true" data-id="<%= collection.id %>" data-name="<%= collection.name %>"><i class="icon-user" style="margin-right:5px;color:#f2d975"></i><%= collection.name %> </li>
+	<% }); %>
+</ul>
+<button type="button" class="btn btn-default btn-mini k-font" style="margin-left:13px;">New Group</button>

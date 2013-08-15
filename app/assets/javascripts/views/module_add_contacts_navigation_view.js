@@ -1,9 +1,9 @@
-KeepAContact.Views.ModuleNavigation = Backbone.View.extend({
+KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
 	
   tagName: "div",
   id: "",
   className: "",
-  template: JST['modules/navigation'],
+  template: JST['modules/add_contacts_navigation'],
 
 	initialize: function() {
 		_.bindAll(this);
@@ -66,6 +66,8 @@ KeepAContact.Views.ModuleNavigation = Backbone.View.extend({
                                 // Then Load the modal window
                                 var addContactModal = new KeepAContact.Views.ModalAddContact({ model: result })
                                 $('.modal-dialog').html(addContactModal.render().$el); 
+                                // Remove <li> element from the list
+                                $( "li[data-id='" + result.source_uid +"']" ).remove();
                             }
                         });
                     }
@@ -96,12 +98,7 @@ KeepAContact.Views.ModuleNavigation = Backbone.View.extend({
                 }
             } // End Success
 	    }); // End fetch
-
-      // Drop Event Listener
-      $('.facebook-contact').on('drop',function(e){
-          console.log("helo")
-      })
-
+      
 		return this;
 	}
 

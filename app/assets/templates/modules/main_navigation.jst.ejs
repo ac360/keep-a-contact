@@ -1,0 +1,25 @@
+<form>
+  <fieldset> 
+    <div class="form-group">
+      <input type="text" class="form-control k-font" id="facebook-contacts-search-field" placeholder="Search Contacts">
+    </div>
+  </fieldset>
+</form>
+
+<h4 class="k-padding-top k-font" style="padding-left:5px;color:#ffffff">Groups</h4>
+<ul id="navigation-groups-list" class="list-unstyled k-white">
+	<li class="group-list-item k-font" draggable="true" data-name="All"><i class="icon-user" style="margin-right:5px;color:#f2d975"></i>All</li>
+	<% _.each(collection, function(collection) { %>
+		<li class="group-list-item k-font" draggable="true" data-id="<%= collection.id %>" data-name="<%= collection.name %>"><i class="icon-user" style="margin-right:5px;color:#f2d975"></i><%= collection.name %> </li>
+	<% }); %>
+</ul>
+<button type="button" class="btn btn-default btn-mini k-font" style="margin-left:13px;">New Group</button>
+
+<h4 class="k-padding-top k-font" style="padding-left:5px;color:#ffffff">Responses</h4>
+<ul id="navigation-responses-list" class="list-unstyled">
+	<li> <i class="icon-comments" style="margin-right:5px;color:#f2d975"></i>Birthdays</li>
+	<li> <i class="icon-comments" style="margin-right:5px;color:#f2d975"></i>Checking In</li>
+	<li> <i class="icon-comments" style="margin-right:5px;color:#f2d975"></i>Holidays</li>
+	<li> <i class="icon-comments" style="margin-right:5px;color:#f2d975"></i>Other</li>
+</ul>
+<button type="button" class="btn btn-default btn-mini k-font" style="margin-left:13px;">New Response Type</button>

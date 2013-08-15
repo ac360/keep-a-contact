@@ -17,6 +17,7 @@ KeepAContact.Views.ModalAddContact = Backbone.View.extend({
 
     	var nickName = $('#nick-name-field').val()
     	var priorityNumber = $('.priority').text()
+    	var self = this
 
     	var thisContact = new KeepAContact.Models.KeepAContactContact({ id: this.model.id })
     	thisContact.save({
@@ -24,7 +25,8 @@ KeepAContact.Views.ModalAddContact = Backbone.View.extend({
 		          priority: priorityNumber
 		      }, {
 		          success: function () {
-		          		$('#add-contact-modal').modal('hide')
+		          		$('#add-contact-modal').modal('hide');
+		          		self.remove();
 		          },
 		          error: function (model, xhr) {
 		            var errors = $.parseJSON(xhr.responseText).errors

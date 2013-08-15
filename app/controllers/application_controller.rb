@@ -4,13 +4,9 @@ class ApplicationController < ActionController::Base
   private
 
   def check_facebook_contacts
-  	@user_status = UserStatus.find_by_user_id(current_user.id)
-
-  	if @user_status.connected_facebook == true
-  	elsif @user_status.connected_facebook == false
+  	if Contact.exists?(:user_id => current_user.id, :source => "facebook")
+  	else
   		redirect_to ('/facebook_contacts')
   	end
-
   end
-
 end

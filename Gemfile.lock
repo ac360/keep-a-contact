@@ -68,6 +68,8 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    google-webfonts (0.1.2)
+      actionpack (>= 3.0.0)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -167,6 +169,7 @@ DEPENDENCIES
   binding_of_caller
   devise
   dotenv-rails
+  google-webfonts
   jquery-rails
   koala
   omniauth
