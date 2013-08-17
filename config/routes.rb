@@ -8,7 +8,10 @@ KeepAContact::Application.routes.draw do
   	  # API Calls
   	  match 'facebook/get_contacts', :to => 'facebook_api#get_contacts'
       match 'facebook/get_contact', :to => 'facebook_api#get_single_contact'
-  	  match 'keepacontact/groups', :to => 'keepacontact_api#get_groups'
+  	  match 'keepacontact/groups', :to => 'keepacontact_api#get_groups', :via => [:get]
+      match 'keepacontact/groups', :to => 'keepacontact_api#create_group', :via => [:post]
+      match 'keepacontact/groups', :to => 'keepacontact_api#destroy_group', :via => [:delete]
+      match 'keepacontact/groups/:id', :to => 'keepacontact_api#update_group', :via => [:put]
       match 'keepacontact/contacts', :to => 'keepacontact_api#get_contacts', :via => [:get]
       match 'keepacontact/contacts', :to => 'keepacontact_api#create_contact', :via => [:post]
       match 'keepacontact/contacts/:id', :to => 'keepacontact_api#update_contact', :via => [:put]
@@ -18,6 +21,6 @@ KeepAContact::Application.routes.draw do
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  root :to => 'main#index'
+  root :to => 'main#dashboard'
   
 end

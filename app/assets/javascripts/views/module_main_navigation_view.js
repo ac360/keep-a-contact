@@ -9,24 +9,33 @@ KeepAContact.Views.ModuleMainNavigation = Backbone.View.extend({
 		_.bindAll(this);
 	},
 
-	events: {
+  events: {
+      "click #add-group-button"            :      "addGroupModal",
+      "click .edit-group-button"           :      "editGroupModal",
+      "click #group-link"                  :      "testFunction"
+  },
+
+  testFunction: function() {
+      alert("hello")
+  },
+
+  addGroupModal: function() {
+      var modalAddGroup = new KeepAContact.Views.ModalAddGroup({})
+      $('#add-group-modal').html(modalAddGroup.render().$el);
+      $('#add-group-modal').modal('show');
+  },
+
+  editGroupModal: function(e) {
+      var groupName = $(e.currentTarget).attr('data-name');
+      var groupID = $(e.currentTarget).attr('data-id');
+      var modalEditGroup = new KeepAContact.Views.ModalEditGroup({ groupid: groupID, groupname: groupName })
+      $('#edit-group-modal').html(modalEditGroup.render().$el);
+      $('#edit-group-modal').modal('show');
   },
 
 	render: function () {
-		var userGroups = new KeepAContact.Collections.Groups();
-		var self = this
-	    userGroups.fetch({
-            success: function (response) {
-                var results = response.toJSON();
-                console.log(results)
-                if (results[0].error) {
-                   console.log(results[0].error)
-                } else {
-                  self.$el.html(self.template({ collection: results }));
-                }
-            } // End Success
-	    }); // End fetch
-		return this;
+		  this.$el.html(this.template({ collection: this.collection }));
+		  return this;
 	}
 
 });

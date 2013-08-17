@@ -1,8 +1,30 @@
 class KeepacontactApiController < ApplicationController
 
 	def get_groups
-		@groups= current_user.groups.sort_by{|g| g.list_order}
+		@groups = current_user.groups.sort_by{|g| g.list_order}
 		render :json => @groups
+	end
+
+	def create_group
+		@new_group = Group.create(
+				:name => params[:name],
+				:list_order => params[:list_order],
+				:user_id => current_user.id
+			)
+		render :json => @new_group
+	end
+
+	def update_group
+		@group = Group.find(params[:id])
+		@group.update_attributes( :name => params[:name] || @group.name )
+		render :json => @group
+	end
+
+	def destroy_group
+		@group = Group.where( :id => 15, :user_id => current_user.id )
+		@group.first
+		@group.destroy
+		render :json => "Group Destroyed"
 	end
 
 	def get_contacts

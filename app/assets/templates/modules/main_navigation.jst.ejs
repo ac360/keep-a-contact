@@ -8,12 +8,14 @@
 
 <h4 class="k-padding-top k-font" style="padding-left:5px;color:#ffffff">Groups</h4>
 <ul id="navigation-groups-list" class="list-unstyled k-white">
-	<li class="group-list-item k-font" draggable="true" data-name="All"><i class="icon-user" style="margin-right:5px;color:#f2d975"></i>All</li>
+	<li class="group-list-item k-font" draggable="true" data-name="All"><a href="#" id="group-link"><i class="icon-user"></i>All</a></li>
+
 	<% _.each(collection, function(collection) { %>
-		<li class="group-list-item k-font" draggable="true" data-id="<%= collection.id %>" data-name="<%= collection.name %>"><i class="icon-user" style="margin-right:5px;color:#f2d975"></i><%= collection.name %> </li>
+		<li class="group-list-item k-font" draggable="true" data-id="<%= collection.id %>" data-name="<%= collection.name %>"><a href="#" id="group-link"><i class="icon-user"></i><%= collection.name %></a> <i class="icon-pencil pull-right edit-group-button" data-id="<%= collection.id %>" data-name="<%= collection.name %>"></i></li>
 	<% }); %>
+
 </ul>
-<button type="button" class="btn btn-default btn-mini k-font" style="margin-left:13px;">New Group</button>
+<button id="add-group-button" type="button" class="btn btn-default btn-mini k-font" style="margin-left:13px;">New Group</button>
 
 <h4 class="k-padding-top k-font" style="padding-left:5px;color:#ffffff">Responses</h4>
 <ul id="navigation-responses-list" class="list-unstyled">
