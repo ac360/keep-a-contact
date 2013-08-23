@@ -7,13 +7,18 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
 
 	initialize: function() {
 		_.bindAll(this);
+    this.collection.bind("change reset add remove", this.render);
 	},
 
 	events: {
-		"dragenter .group-list-item"       :  "addHighlight",
-		"dragleave .group-list-item"       :  "removeHighlight",
-    "drop .group-list-item"            :  "addContactToGroup",
-    "dragover .group-list-item"        :   function(ev) { ev.preventDefault(); }
+		"dragenter .group-list-item"            :  "addHighlight",
+		"dragleave .group-list-item"            :  "removeHighlight",
+    "drop      .group-list-item"            :  "addContactToGroup",
+    "dragover  .group-list-item"            :  "dragOverFunction"
+  },
+
+  dragOverFunction: function(e) {
+    e.preventDefault(); 
   },
 
   addContactToGroup: function(e) {
@@ -21,10 +26,11 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
       this.removeHighlight(e);
       //retrieve the facebook contact's UID from the dataTransfer Object
 
-      var userID = e.originalEvent.dataTransfer.getData("facebookID")
-      var groupID = $(e.currentTarget).attr( "data-id" );
-      var groupName = $(e.currentTarget).attr( "data-name" );
+      var groupName = $(e.currentTarget).text();
+      var userID    = e.originalEvent.dataTransfer.getData("facebookID")
+      var groupID   = $(e.currentTarget).attr( "data-id" );
 
+      $('#customized-contact-area').html('')
       $('#add-contact-modal').modal()
       $('#add-contact-modal').modal('show')
 
@@ -43,7 +49,6 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
 
                        contactInfo = {}
                        contactInfo.group_id = groupID
-                       contactInfo.group_name = groupName
                        if(response.attributes.name){ contactInfo.full_name = response.attributes.name }
                        if(response.attributes.first_name){ contactInfo.first_name = response.attributes.first_name }
                        if(response.attributes.last_name){ contactInfo.last_name = response.attributes.last_name }
@@ -60,21 +65,20 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
 
                        var keepacontactContact = new KeepAContact.Collections.KeepAContactContact();
                        keepacontactContact.create(contactInfo, {
-                            success: function(response) {
-                                var result = response.toJSON();
-                                console.log("New Contact Object:", result)
-                                // Then Load the modal window
-                                var addContactModal = new KeepAContact.Views.ModalAddContact({ model: result })
-                                $('.modal-dialog').html(addContactModal.render().$el); 
-                                // Remove <li> element from the list
-                                $( "li[data-id='" + result.source_uid +"']" ).remove();
-                            }
+                          success: function(response) {
+                              var result = response.toJSON();
+                              console.log("New Contact Object:", result)
+                              // Then Load the modal window
+                              var addContactModal = new KeepAContact.Views.ModalAddContact({ model: result, group: groupName })
+                              $('.modal-dialog').html(addContactModal.render().$el); 
+                              // Remove <li> element from the list
+                              $( "li[data-id='" + result.source_uid +"']" ).remove();
+                          }
                         });
                     }
             } // End Success
         }); // End fetch 
-
-  },
+  }, // End addContactToGroup
 
   addHighlight: function(e) {
   	$(e.currentTarget).addClass( "navigation-highlight" );
@@ -85,20 +89,10 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
   },
 
 	render: function () {
-		var userGroups = new KeepAContact.Collections.Groups();
-		var self = this
-	    userGroups.fetch({
-            success: function (response) {
-                var results = response.toJSON();
-                console.log(results)
-                if (results[0].error) {
-                   console.log(results[0].error)
-                } else {
-                  self.$el.html(self.template({ collection: results }));
-                }
-            } // End Success
-	    }); // End fetch
-      
+    this.collection = this.collection.toJSON();
+    groupsSorted = _.sortBy(this.collection, function(group){return group.name});
+    console.log(groupsSorted);
+    this.$el.html(this.template({ collection: groupsSorted }));
 		return this;
 	}
 

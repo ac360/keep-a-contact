@@ -1,7 +1,7 @@
 KeepAContact.Views.ModuleSaveFacebookContactsView = Backbone.View.extend({
 	
   tagName: "ul",
-  id: "facebook-contacts-list",
+  id: "contacts-list",
   className: "list-inline row",
   template: JST['modules/save_facebook_contacts'],
 
@@ -11,7 +11,7 @@ KeepAContact.Views.ModuleSaveFacebookContactsView = Backbone.View.extend({
 	},
 
 	events: {
-		"dragstart .facebook-contact"      :  "setDataTransferObject"
+		"dragstart .contact-outer"      :  "setDataTransferObject"
     },
 
     setDataTransferObject: function(e) {

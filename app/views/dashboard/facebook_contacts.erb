@@ -23,16 +23,49 @@
 		   	</div>
 
 		</div>
-   	</div>
-</div>
 
-<!-- Modal for Facebook Contact -->
-<div id="add-contact-modal" class="modal">
-  <div class="modal-dialog">
-  	<div class="modal-content">
-		<div class="modal-body">
-		</div>
-	</div>
+		<!-- Modal for Add Facebook Contact -->
+		<div id="add-contact-modal" class="modal">
+		  <div id="customized-contact-area" class="modal-dialog">
+		  	<div class="modal-content">
+				<div class="modal-body">
+				</div>
+			</div>
 
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!-- Modal for Add Group -->
+		<div id="add-group-modal" class="modal fade">
+			<div class="modal-dialog">
+			  	<div class="modal-content">
+					<div class="modal-body">
+						<h3 class="k-centered" style="margin-bottom:15px;">Add New Group</h3>
+						<input type="text" id="group-name-field" class="k-centered form-control k-box-shadow-one" size="25" placeholder="Group Name" style="margin:0px auto!important;max-width:250px">
+						<p class="k-centered" style="padding-top:15px;">
+							<button id="add-group-submit-button" class="btn btn-primary">Create</button>
+						</p>
+					</div>
+				</div>
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!-- Modal for Edit Group -->
+		<div id="edit-group-modal" class="modal fade">
+			<div class="modal-dialog">
+			  	<div class="modal-content">
+					<div class="modal-body">
+						<h3 class="k-centered" style="margin-bottom:15px;">Edit Group</h3>
+						<input type="text" id="edit-group-name-field" class="k-centered form-control k-box-shadow-one" size="25" placeholder="Group Name" style="margin:0px auto!important;max-width:250px">
+						<p class="k-centered k-padding"><a id="group-delete-link" href="#" style="color:#e97171">Delete this Group</a></p>
+						<p class="k-centered">
+							<button id="edit-group-submit-button" class="btn btn-primary" >Submit Changes</button>
+						</p>
+					</div>
+				</div>
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+   	</div> <!-- /#dashboard-container -->
+</div> <!-- /.row -->
+

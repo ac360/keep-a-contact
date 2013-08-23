@@ -5,11 +5,11 @@ KeepAContact.Views.ModalAddContact = Backbone.View.extend({
   template: JST['modals/modal_add_facebook_contact'],
 
 	initialize: function() {
-		_.bindAll(this);
+		_.bindAll(this, "remove");
 	},
 
 	events: {
-		"click #save-customized-contact-button"  :  "saveCustomizedContact",
+		"click #save-customized-contact-button"  :   "saveCustomizedContact",
 		"click .priority-button"                 :   "setPriority"
     },
 
@@ -25,14 +25,14 @@ KeepAContact.Views.ModalAddContact = Backbone.View.extend({
 		          priority: priorityNumber
 		      }, {
 		          success: function () {
-		          		$('#add-contact-modal').modal('hide');
 		          		self.remove();
+		          		$('#add-contact-modal').modal('hide');
 		          },
 		          error: function (model, xhr) {
 		            var errors = $.parseJSON(xhr.responseText).errors
 		            console.log(errors)
 		          }
-		    }) // End of thisContact.save
+		}) // End of thisContact.save
     },
 
     setPriority: function(e) {
@@ -46,7 +46,7 @@ KeepAContact.Views.ModalAddContact = Backbone.View.extend({
 
 	render: function () {
 
-	    this.$el.html(this.template({ model: this.model }));
+	    this.$el.html(this.template({ model: this.model, group: this.options.group }));
 		return this;
 
 	}

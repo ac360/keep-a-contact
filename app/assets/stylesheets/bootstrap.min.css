@@ -39,12 +39,22 @@
  /* Dashboard Screen */
  #header-container {min-height:50px;margin-top:30px;}
  #user-account-link {padding-top:25px;}
- #dashboard-container {min-height:600px;background:#373737;}
+ #dashboard-container {min-height:600px;background:#373737;overflow:hidden;}
+ #main-column-container {min-height:600px;background:#eaeaea;}
+ #second-column-container {min-height:600px;background:#f5f5f5;}
  #navigation-container {background:#373737;min-height:600px;}
  #feed-container {background:#eaeaea;min-height:600px;}
  #suggestions-container {background:#f5f5f5;min-height:600px;}
  #add-group-modal .modal-content { border-radius:0px;background:#eaeaea;min-height:180px;}
  #edit-group-modal .modal-content { border-radius:0px;background:#eaeaea;min-height:180px;}
+ #contacts-list {padding:10px;}
+ .contact-outer {}
+ .contact-outer:hover {cursor:move;}
+ .contact-inner {background:#ffffff;overflow:hidden;height:142px;margin-bottom:8px;text-align:center;-webkit-box-shadow: 0px 1px 1px hsla(0, 0%, 0%, 0.30) ;box-shadow:  0px 1px 1px hsla(0, 0%, 0%, 0.30) ;}
+ .contact-photo {margin:15px auto 8px auto;text-align:center;}
+ .contact-name {font-size:12px;font-weight:normal;height:35px;overflow:hidden;margin-bottom:5px;}
+ .contact-group {font-size:10px;color:#bbb;text-align:center;}
+ .scrollable-container {height:550px;}
 
  /* Navigation Module */
  #navigation-groups-list {}
@@ -60,13 +70,6 @@
 #facebook-contacts-container {background:#eaeaea;height:600px;}
 #facebook-contacts-search-field {margin-top:25px;background:#eaeaea;text-align:center;}
 #scrollable-container {height:455px;width:97%;}
-#facebook-contacts-list {padding:10px;}
-#facebook-contacts-list li {}
-#facebook-contact-box {background:#ffffff;overflow:hidden;height:142px;margin-bottom:8px;text-align:center;-webkit-box-shadow: 0px 1px 1px hsla(0, 0%, 0%, 0.30) ;box-shadow:  0px 1px 1px hsla(0, 0%, 0%, 0.30) ;}
-#facebook-contacts-list li:hover {cursor:move}
-#facebook-contacts-list li img {margin:15px auto 8px auto;text-align:center;}
-.facebook-contact-photo {margin-right:10px;}
-.facebook-contact-name {font-size:13px;font-weight:normal;}
 #add-contact-modal .modal-content { border-radius: 0px;border:0px;background:transparent; }
 #add-facebook-contact-form {max-width:250px;margin:0px auto;}
 #add-facebook-contact-form .form-control {text-align:center;}
