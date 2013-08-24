@@ -11,14 +11,15 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
 	},
 
 	events: {
-		"dragenter .group-list-item"            :  "addHighlight",
-		"dragleave .group-list-item"            :  "removeHighlight",
-    "drop      .group-list-item"            :  "addContactToGroup",
-    "dragover  .group-list-item"            :  "dragOverFunction"
+  		"dragenter .group-list-item"            :  "addHighlight",
+  		"dragleave .group-list-item"            :  "removeHighlight",
+      "drop      .group-list-item"            :  "addContactToGroup",
+      "dragover  .group-list-item"            :  "dragOverFunction"
   },
 
   dragOverFunction: function(e) {
-    e.preventDefault(); 
+      e.preventDefault(); 
+      this.addHighlight(e);
   },
 
   addContactToGroup: function(e) {
