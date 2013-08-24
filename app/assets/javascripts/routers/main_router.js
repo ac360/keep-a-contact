@@ -15,10 +15,12 @@ KeepAContact.Routers.Main = Backbone.Router.extend({
     }, // END home
 
     dashboardScreen: function() {
+      var headerView= new KeepAContact.Views.Header();
       var screenDashboardView= new KeepAContact.Views.ScreenDashboard();
     },
 
     importFacebookContactsScreen: function() {
+      var headerView= new KeepAContact.Views.Header();
       var screenDashboardView = new KeepAContact.Views.ScreenImportFacebookContacts();
     } // End saveFacebookContactsPage
     
