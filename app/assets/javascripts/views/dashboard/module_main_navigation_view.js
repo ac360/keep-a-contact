@@ -35,7 +35,8 @@ KeepAContact.Views.ModuleMainNavigation = Backbone.View.extend({
           }, {
               success: function () {
                 console.log("Switched Group!")
-                $( "li[data-id='" + contactID +"']" ).remove();
+                $( "li[data-id='" + contactID +"']" ).addClass('bounceOut')
+                // $( "li[data-id='" + contactID +"']" ).remove();
               },
               error: function (model, xhr) {
                 var errors = $.parseJSON(xhr.responseText).errors

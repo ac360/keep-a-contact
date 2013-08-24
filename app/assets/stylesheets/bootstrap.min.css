@@ -79,6 +79,12 @@
 .priority {background: rgb(58, 60, 60);border: 1px solid rgb(46, 47, 47)!important;}
 #facebook-contact-actions {min-height:50px;margin-top:15px;color:#999;padding-top:10px;text-align:center;}
 
+/* Extra CSS */
+
+/* Animations */
+.animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:0.5s;-moz-animation-duration:0.5s;-ms-animation-duration:0.5s;-o-animation-duration:0.5s;animation-duration:0.5s;}.animated.hinge{-webkit-animation-duration:1s;-moz-animation-duration:1s;-ms-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;}@-webkit-keyframes bounceOut {0% {-webkit-transform: scale(1); }	25% {-webkit-transform: scale(.95); } 50% {opacity: 1; -webkit-transform: scale(1.1); } 100% {opacity: 0; -webkit-transform: scale(.3); } } @-moz-keyframes bounceOut {0% {-moz-transform: scale(1); } 25% {-moz-transform: scale(.95); } 50% {opacity: 1; -moz-transform: scale(1.1); } 100% {opacity: 0; -moz-transform: scale(.3); } } @-o-keyframes bounceOut {0% {-o-transform: scale(1); } 25% {-o-transform: scale(.95); } 50% {opacity: 1; -o-transform: scale(1.1); } 100% {opacity: 0; -o-transform: scale(.3); } } @keyframes bounceOut {0% {transform: scale(1); } 25% {transform: scale(.95); } 50% {opacity: 1; transform: scale(1.1); } 100% {opacity: 0; transform: scale(.3); } }
+.bounceOut {-webkit-animation-name: bounceOut; -moz-animation-name: bounceOut; -o-animation-name: bounceOut; animation-name: bounceOut; }
+
 .unselectable {
     /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
     /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */

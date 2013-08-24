@@ -7,7 +7,7 @@
 	<div id="" class="col-lg-12 scrollable-container">
 		<ul id="contacts-list" class="list-inline row">
 			<% _.each(collection, function(collection) { %>
-					<li draggable="true" data-id="<%= collection.id %>"  style="line-height:16px" class="col-lg-4 contact-outer k-font">
+					<li draggable="true" data-id="<%= collection.id %>"  style="line-height:16px" class="col-lg-4 contact-outer k-font animated">
 						<div class="contact-inner">
 							<p class="col-lg-12" style="margin-bottom:5px"><img src="<%= collection.image_url %>" class="contact-photo unselectable" draggable="false"/></p> 
 							<p class="contact-name col-lg-12"><%= collection.full_name %></p> 
