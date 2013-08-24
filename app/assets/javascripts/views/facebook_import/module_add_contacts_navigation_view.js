@@ -13,7 +13,7 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
 	events: {
   		"dragenter .group-list-item"            :  "addHighlight",
   		"dragleave .group-list-item"            :  "removeHighlight",
-      "drop      .group-list-item"            :  "addContactToGroup",
+      "drop      .group-list-item"            :  "importContactToGroup",
       "dragover  .group-list-item"            :  "dragOverFunction"
   },
 
@@ -22,8 +22,7 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
       this.addHighlight(e);
   },
 
-  addContactToGroup: function(e) {
-
+  importContactToGroup: function(e) {
       this.removeHighlight(e);
       //retrieve the facebook contact's UID from the dataTransfer Object
 
@@ -34,6 +33,7 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
       $('#customized-contact-area').html('')
       $('#add-contact-modal').modal()
       $('#add-contact-modal').modal('show')
+      $('.modal-dialog').html('<p style="text-align:center;color:#fff;padding-top:150px;">Saving...</p>'); 
 
         var facebookContact = new KeepAContact.Models.FacebookContact({});
             facebookContact.fetch({

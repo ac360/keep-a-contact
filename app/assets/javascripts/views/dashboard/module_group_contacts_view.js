@@ -10,10 +10,17 @@ KeepAContact.Views.ModuleGroupContacts = Backbone.View.extend({
   	},
 
     events: {
+      "dragstart .contact-outer"      :  "setDataTransferObject"
     },
 
     instantiateScollrableArea: function() {
       $('.scrollable-container').niceScroll({cursorcolor:"#999999"});
+    },
+
+    setDataTransferObject: function(e) {
+        console.log("check")
+        // Get the draggable item's Facebook UID and store it in the dataTransferObject
+        e.originalEvent.dataTransfer.setData("contactID", $(e.currentTarget).attr('data-id'));
     },
 
   	render: function () {

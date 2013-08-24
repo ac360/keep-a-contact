@@ -67,7 +67,7 @@ class KeepacontactApiController < ApplicationController
 	def update_contact
 		@contact = Contact.find(params[:id])
 		@contact.update_attributes(
-									  :nick_name => params[:nick_name] 				|| @contact.title,
+									  :nick_name => params[:nick_name] 				|| @contact.nick_name,
 									  :full_name => params[:full_name] 				|| @contact.full_name, 
 									  :first_name => params[:first_name] 			|| @contact.first_name, 
 									  :last_name => params[:last_name] 				|| @contact.last_name, 
