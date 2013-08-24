@@ -64,7 +64,9 @@
  #group-link .icon-user {margin-right:5px;color:#f2d975}
  .edit-group-button {font-size:10px;color:#666666;} 
  .edit-group-button:hover {color:#eaeaea;cursor:pointer;}
- .navigation-highlight {background:#f2d975!important;color:#373737!important;}
+ .navigation-highlight {background:#f2d975!important;color:#ffffff!important;}
+ .navigation-highlight a, .navigation-highlight i {color:#555555!important;}
+
 
 /* Facebook Contacts Screen */
 #facebook-contacts-container {background:#eaeaea;height:600px;}
