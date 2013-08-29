@@ -6,11 +6,31 @@ KeepAContact.Views.ModuleGroupContacts = Backbone.View.extend({
     template: JST['dashboard/group_contacts'],
 
   	initialize: function() {
-  		  _.bindAll(this);
+  		_.bindAll(this);
   	},
 
     events: {
-      "dragstart .contact-outer"      :  "setDataTransferObject"
+      "dragstart .contact-outer"      :  "setDataTransferObject",
+      "click .priority-option"        :  "updatePriority"
+    },
+
+    updatePriority: function(e) {
+        var newPriority = $(e.currentTarget).text()
+        var contactID   = $(e.currentTarget).closest('.contact-outer').attr('data-id');
+        console.log(newPriority, contactID);
+        thisContact = new KeepAContact.Models.KeepAContactContact({ id: contactID });
+        thisContact.save({}, {
+              data: { priority: newPriority },
+              processData: true,
+              success: function () {
+                $(e.currentTarget).closest('.contact-outer').find('.c-priority').removeClass('c-priority');
+                $(e.currentTarget).addClass('c-priority');
+              },
+              error: function (model, xhr) {
+                var errors = $.parseJSON(xhr.responseText).errors
+                console.log(errors)
+              }
+        }) // End of thisDeal.save
     },
 
     instantiateScollrableArea: function() {

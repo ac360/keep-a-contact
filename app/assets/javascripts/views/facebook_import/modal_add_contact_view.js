@@ -18,7 +18,7 @@ KeepAContact.Views.ModalAddContact = Backbone.View.extend({
     	var nickName = $('#nick-name-field').val()
     	var priorityNumber = $('.priority').text()
     	var self = this
-
+    	console.log(priorityNumber);
     	var thisContact = new KeepAContact.Models.KeepAContactContact({ id: this.model.id })
     	thisContact.save({
 		          nick_name: nickName,
@@ -40,7 +40,7 @@ KeepAContact.Views.ModalAddContact = Backbone.View.extend({
     		 $('.priority-button').removeClass('priority');
     		 $(e.currentTarget).addClass('priority');
     	} else {
-    		$(e.currentTarget).addClass('priority');
+    		 $(e.currentTarget).addClass('priority');
     	}
     },
 

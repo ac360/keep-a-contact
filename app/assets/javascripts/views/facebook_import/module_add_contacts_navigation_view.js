@@ -71,7 +71,7 @@ KeepAContact.Views.ModuleAddContactsNavigation = Backbone.View.extend({
                               console.log("New Contact Object:", result)
                               // Then Load the modal window
                               var addContactModal = new KeepAContact.Views.ModalAddContact({ model: result, group: groupName })
-                              $('.modal-dialog').html(addContactModal.render().$el); 
+                              $('#add-contact-modal').find('.modal-dialog').html(addContactModal.render().$el); 
                               // Remove <li> element from the list
                               $( "li[data-id='" + result.source_uid +"']" ).remove();
                           }

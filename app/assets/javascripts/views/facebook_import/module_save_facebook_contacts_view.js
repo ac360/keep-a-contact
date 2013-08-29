@@ -20,7 +20,6 @@ KeepAContact.Views.ModuleSaveFacebookContactsView = Backbone.View.extend({
     },
 
 	render: function () {
-
 		// Get your Contacts and collect their Facebook IDs so you have a list of who you have alreaady saved
 		var fbContactIDs = []
 		$.each(this.options.contacts, function(c, k) {
@@ -57,8 +56,6 @@ KeepAContact.Views.ModuleSaveFacebookContactsView = Backbone.View.extend({
 		//     	};
 		// 	};
 		// });
-
-
 
 		console.log("Here are how many Facebook Contacts you have not already saved:", self.collection.length)
 		// Render Template
