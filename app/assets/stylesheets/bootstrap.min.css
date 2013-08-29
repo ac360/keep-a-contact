@@ -77,6 +77,7 @@
  #group-link {color:#bbbbbb;}
  #group-link:hover {color:#ffffff!important;cursor:pointer;}
  #group-link .icon-user {margin-right:5px;color:#f2d975}
+ .facebook-navigation #group-link:hover {cursor:default;color:#bbb!important;}
  .edit-group-button {font-size:10px;color:#666666;} 
  .edit-group-button:hover {color:#eaeaea;cursor:pointer;}
  .navigation-highlight {background:#f2d975!important;color:#ffffff!important;}

@@ -64,13 +64,18 @@ KeepAContact.Views.ScreenDashboard = Backbone.View.extend({
       },
 
       deleteGroup: function() {
-	  		var groupID   =  $('#edit-group-name-field').attr('data-id');
-	  		var thisGroup =  new KeepAContact.Models.KeepAContactGroup({ id: groupID })
-	        thisGroup.destroy();
-	        this.fetchGroups();
+	  		var confirmation = confirm("Are you sure you want to delete this Group?  You will lose all of the Contacts within this Group.")
+      		if (confirmation==true){
+	      		var groupID   =  $('#edit-group-name-field').attr('data-id');
+	      		var thisGroup =  new KeepAContact.Models.KeepAContactGroup({ id: groupID })
+	            thisGroup.destroy();
+	            this.fetchGroups();
 
-	        $('#edit-group-modal').modal('hide');
-	        $("#group-delete-link").off('click');
+	            $('#edit-group-modal').modal('hide');
+	            $("#group-delete-link").off('click');
+        	} else {
+        		$('#edit-group-modal').modal('hide');
+        	}
       },
 
       addGroupModal: function() {

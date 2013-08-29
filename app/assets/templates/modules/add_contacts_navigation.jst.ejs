@@ -7,7 +7,7 @@
 </form>
 
 <h4 class="k-padding-top k-font" style="padding-left:5px;color:#ffffff">Groups</h4>
-<ul id="navigation-groups-list" class="list-unstyled k-white">
+<ul id="navigation-groups-list" class="list-unstyled k-white facebook-navigation">
 
 	<% _.each(collection, function(collection) { %>
 		<li class="group-list-item k-font section" draggable="true" data-id="<%= collection.id %>" data-name="<%= collection.name %>"><a href="#" id="group-link"><i class="icon-user"></i><%= collection.name %></a> <i class="icon-pencil pull-right edit-group-button" data-id="<%= collection.id %>" data-name="<%= collection.name %>"></i></li>
